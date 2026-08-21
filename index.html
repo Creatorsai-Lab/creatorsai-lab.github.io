@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creators AI Lab — Frontier AI for Content Creation</title>
-  <meta name="description" content="Creators AI Lab researches and builds open AI systems that give every storyteller a complete creative suite — from ideation to publishing." />
-  <meta name="theme-color" content="#0a0b0f" />
+  <meta name="description" content="Creators AI Lab researches and builds open AI systems that give every storyteller a complete creative suite." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Animated Neural Background -->
+  <canvas id="neural-bg"></canvas>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <span class="logo-mark"></span>
+        <span class="logo-orb"></span>
         Creators AI Lab
       </a>
       <div class="nav-links">
@@ -31,42 +33,60 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero-glow"></div>
-    <div class="container">
-      <p class="eyebrow">Open-source · Research-driven · Creator-first</p>
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="pulse-dot"></span>
+        OPEN-SOURCE · RESEARCH-DRIVEN · CREATOR-FIRST
+      </div>
       <h1>
-        Building the AI suite<br />
-        <em>every storyteller</em> deserves
+        Innovating the AI suite<br />
+        <span class="gradient-text">every content creators</span> deserves
       </h1>
       <p class="hero-sub">
-        We research and ship open AI systems that handle the entire content pipeline — 
-        ideation, media generation, editing, and automation — so creators can focus on what only humans can do.
+        We research and ship AI systems that handle the entire content pipeline: ideation, research, personalization, media generation, editing, and stratgic posting so creators can focus on what only humans can do.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">Explore Projects</a>
-        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub →</a>
+        <a href="#projects" class="btn btn-primary">
+          Explore Projects
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">
+          View on GitHub
+        </a>
       </div>
+    </div>
+
+    <!-- Floating neural nodes (decorative) -->
+    <div class="floating-nodes">
+      <div class="node n1"></div>
+      <div class="node n2"></div>
+      <div class="node n3"></div>
+      <div class="node n4"></div>
+      <div class="node n5"></div>
     </div>
   </header>
 
   <!-- Mission -->
   <section id="mission" class="section">
     <div class="container">
-      <div class="section-label">Mission</div>
-      <h2 class="section-title">Empower every storyteller<br />with open, ethical &amp; composable AI</h2>
+      <div class="section-header">
+        <span class="section-label">Mission</span>
+        <h2>Empower every storyteller<br />with open, ethical &amp; composable AI</h2>
+      </div>
+
       <div class="mission-grid">
-        <div class="mission-card">
-          <div class="mission-icon">01</div>
+        <div class="mission-card" data-reveal>
+          <div class="card-number">01</div>
           <h3>Research at the frontier</h3>
-          <p>We explore LLMs, agents, and generative media specifically for the content creation domain — not general-purpose demos.</p>
+          <p>We explore LLMs, multi-agent systems, and generative media specifically for content creation — not general-purpose demos.</p>
         </div>
-        <div class="mission-card">
-          <div class="mission-icon">02</div>
+        <div class="mission-card" data-reveal>
+          <div class="card-number">02</div>
           <h3>Build real applications</h3>
           <p>Every research direction ends in usable tools. From video editors to multi-agent social teams, we ship working software.</p>
         </div>
-        <div class="mission-card">
-          <div class="mission-icon">03</div>
+        <div class="mission-card" data-reveal>
+          <div class="card-number">03</div>
           <h3>Open by default</h3>
           <p>Permissive licenses. Transparent development. No lock-in. The future of creator tooling should belong to creators.</p>
         </div>
@@ -74,23 +94,37 @@
     </div>
   </section>
 
-  <!-- Research Focus -->
+  <!-- Research -->
   <section id="research" class="section section-alt">
     <div class="container">
-      <div class="section-label">Research Focus</div>
-      <h2 class="section-title">Where we push the frontier</h2>
+      <div class="section-header">
+        <span class="section-label">Research Focus</span>
+        <h2>Where we push the frontier</h2>
+      </div>
+
       <div class="research-grid">
-        <article class="research-card">
+        <article class="research-card" data-reveal>
+          <div class="research-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M4 14a8 8 0 0116 0v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z"/><circle cx="9" cy="16" r="1"/><circle cx="15" cy="16" r="1"/></svg>
+          </div>
           <span class="tag">LLMs &amp; Knowledge</span>
           <h3>Content-specialized language models</h3>
           <p>Models and knowledge systems tuned for storytelling, scripting, educational content, and long-form creative workflows.</p>
         </article>
-        <article class="research-card">
+
+        <article class="research-card" data-reveal>
+          <div class="research-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
           <span class="tag">Media Generation</span>
           <h3>Video, image &amp; multimodal systems</h3>
           <p>Lightweight, high-control generation and editing pipelines designed for individual creators rather than large studios.</p>
         </article>
-        <article class="research-card">
+
+        <article class="research-card" data-reveal>
+          <div class="research-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
           <span class="tag">Agents</span>
           <h3>Multi-agent creative teams</h3>
           <p>Agent systems that collaborate on ideation, production, publishing, and audience workflows across platforms.</p>
@@ -102,64 +136,66 @@
   <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
-      <div class="section-label">Flagship Projects</div>
-      <h2 class="section-title">Open tools from the lab</h2>
+      <div class="section-header">
+        <span class="section-label">Flagship Projects</span>
+        <h2>Open tools from the lab</h2>
+      </div>
 
       <div class="projects-grid">
-        <!-- luffy-create -->
-        <a href="https://github.com/Creatorsai-Lab/luffy-create" class="project-card" target="_blank" rel="noopener">
-          <div class="project-header">
+        <a href="https://github.com/Creatorsai-Lab/luffy-create" class="project-card" target="_blank" rel="noopener" data-reveal>
+          <div class="project-glow"></div>
+          <div class="project-top">
             <h3>luffy-create</h3>
-            <span class="project-status">Active</span>
+            <span class="status">Active</span>
           </div>
           <p>Lightweight, offline-first AI video &amp; image editor. Timeline, animations, captions, and precise control — built for technical and educational creators.</p>
-          <div class="project-meta">
+          <div class="project-footer">
             <span>TypeScript · Electron · Konva</span>
             <span class="arrow">→</span>
           </div>
         </a>
 
-        <!-- cupid -->
-        <a href="https://github.com/Creatorsai-Lab/cupid" class="project-card" target="_blank" rel="noopener">
-          <div class="project-header">
+        <a href="https://github.com/Creatorsai-Lab/cupid" class="project-card" target="_blank" rel="noopener" data-reveal>
+          <div class="project-glow"></div>
+          <div class="project-top">
             <h3>cupid</h3>
-            <span class="project-status">Active</span>
+            <span class="status">Active</span>
           </div>
           <p>Social media agents team. Multi-agent systems that plan, create, and manage content workflows across platforms.</p>
-          <div class="project-meta">
+          <div class="project-footer">
             <span>Python · Agents</span>
             <span class="arrow">→</span>
           </div>
         </a>
 
-        <!-- Aura-LM -->
-        <a href="https://github.com/Creatorsai-Lab/Aura-LM" class="project-card" target="_blank" rel="noopener">
-          <div class="project-header">
+        <a href="https://github.com/Creatorsai-Lab/Aura-LM" class="project-card" target="_blank" rel="noopener" data-reveal>
+          <div class="project-glow"></div>
+          <div class="project-top">
             <h3>Aura-LM</h3>
-            <span class="project-status">Research</span>
+            <span class="status research">Research</span>
           </div>
           <p>Language models specialized for content creation tasks — scripting, structuring, and creative assistance.</p>
-          <div class="project-meta">
+          <div class="project-footer">
             <span>LLMs · Content</span>
             <span class="arrow">→</span>
           </div>
         </a>
 
-        <!-- content-claude-skills -->
-        <a href="https://github.com/Creatorsai-Lab/content-claude-skills" class="project-card" target="_blank" rel="noopener">
-          <div class="project-header">
+        <a href="https://github.com/Creatorsai-Lab/content-claude-skills" class="project-card" target="_blank" rel="noopener" data-reveal>
+          <div class="project-glow"></div>
+          <div class="project-top">
             <h3>content-claude-skills</h3>
-            <span class="project-status">Active</span>
+            <span class="status">Active</span>
           </div>
           <p>Claude Skills for generating images, video, and audio — practical building blocks for creator pipelines.</p>
-          <div class="project-meta">
+          <div class="project-footer">
             <span>Skills · Generation</span>
             <span class="arrow">→</span>
           </div>
         </a>
       </div>
 
-      <div class="projects-footer">
+      <div class="projects-cta">
         <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">
           View all repositories on GitHub →
         </a>
@@ -168,26 +204,39 @@
   </section>
 
   <!-- Closing -->
-  <section class="section closing">
+  <section class="closing">
     <div class="container">
       <h2>Open-sourcing the future<br />of creator tooling</h2>
       <p>We believe the most powerful creative AI should be transparent, composable, and owned by the people who use it.</p>
-      <a href="https://github.com/Creatorsai-Lab" class="btn btn-primary" target="_blank" rel="noopener">Join us on GitHub</a>
+      <a href="https://github.com/Creatorsai-Lab" class="btn btn-primary" target="_blank" rel="noopener">
+        Join us on GitHub
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-left">
-        <span class="logo-mark small"></span>
-        <span>Creators AI Lab</span>
+      <div class="footer-brand">
+        <span class="logo-orb small"></span>
+        Creators AI Lab
       </div>
-      <div class="footer-right">
-        <span>© 2026 · Built with purpose</span>
-      </div>
+      <div class="footer-copy">© 2026 · Built with purpose</div>
     </div>
   </footer>
 
+  <script src="neural.js"></script>
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
