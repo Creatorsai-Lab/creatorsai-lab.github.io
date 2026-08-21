@@ -1,11 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creators AI Lab — Frontier AI for Content Creation</title>
+  <meta name="description" content="Creators AI Lab researches and builds open AI systems that give every storyteller a complete creative suite — from ideation to publishing." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <h1>Creators AI Lab</h1>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark"></span>
+        Creators AI Lab
+      </a>
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <p class="eyebrow">Open-source · Research-driven · Creator-first</p>
+      <h1>
+        Building the AI suite<br />
+        <em>every storyteller</em> deserves
+      </h1>
+      <p class="hero-sub">
+        We research and ship open AI systems that handle the entire content pipeline — 
+        ideation, media generation, editing, and automation — so creators can focus on what only humans can do.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mission -->
+  <section id="mission" class="section">
+    <div class="container">
+      <div class="section-label">Mission</div>
+      <h2 class="section-title">Empower every storyteller<br />with open, ethical &amp; composable AI</h2>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">01</div>
+          <h3>Research at the frontier</h3>
+          <p>We explore LLMs, agents, and generative media specifically for the content creation domain — not general-purpose demos.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">02</div>
+          <h3>Build real applications</h3>
+          <p>Every research direction ends in usable tools. From video editors to multi-agent social teams, we ship working software.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">03</div>
+          <h3>Open by default</h3>
+          <p>Permissive licenses. Transparent development. No lock-in. The future of creator tooling should belong to creators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Focus -->
+  <section id="research" class="section section-alt">
+    <div class="container">
+      <div class="section-label">Research Focus</div>
+      <h2 class="section-title">Where we push the frontier</h2>
+      <div class="research-grid">
+        <article class="research-card">
+          <span class="tag">LLMs &amp; Knowledge</span>
+          <h3>Content-specialized language models</h3>
+          <p>Models and knowledge systems tuned for storytelling, scripting, educational content, and long-form creative workflows.</p>
+        </article>
+        <article class="research-card">
+          <span class="tag">Media Generation</span>
+          <h3>Video, image &amp; multimodal systems</h3>
+          <p>Lightweight, high-control generation and editing pipelines designed for individual creators rather than large studios.</p>
+        </article>
+        <article class="research-card">
+          <span class="tag">Agents</span>
+          <h3>Multi-agent creative teams</h3>
+          <p>Agent systems that collaborate on ideation, production, publishing, and audience workflows across platforms.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">Flagship Projects</div>
+      <h2 class="section-title">Open tools from the lab</h2>
+
+      <div class="projects-grid">
+        <!-- luffy-create -->
+        <a href="https://github.com/Creatorsai-Lab/luffy-create" class="project-card" target="_blank" rel="noopener">
+          <div class="project-header">
+            <h3>luffy-create</h3>
+            <span class="project-status">Active</span>
+          </div>
+          <p>Lightweight, offline-first AI video &amp; image editor. Timeline, animations, captions, and precise control — built for technical and educational creators.</p>
+          <div class="project-meta">
+            <span>TypeScript · Electron · Konva</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- cupid -->
+        <a href="https://github.com/Creatorsai-Lab/cupid" class="project-card" target="_blank" rel="noopener">
+          <div class="project-header">
+            <h3>cupid</h3>
+            <span class="project-status">Active</span>
+          </div>
+          <p>Social media agents team. Multi-agent systems that plan, create, and manage content workflows across platforms.</p>
+          <div class="project-meta">
+            <span>Python · Agents</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Aura-LM -->
+        <a href="https://github.com/Creatorsai-Lab/Aura-LM" class="project-card" target="_blank" rel="noopener">
+          <div class="project-header">
+            <h3>Aura-LM</h3>
+            <span class="project-status">Research</span>
+          </div>
+          <p>Language models specialized for content creation tasks — scripting, structuring, and creative assistance.</p>
+          <div class="project-meta">
+            <span>LLMs · Content</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- content-claude-skills -->
+        <a href="https://github.com/Creatorsai-Lab/content-claude-skills" class="project-card" target="_blank" rel="noopener">
+          <div class="project-header">
+            <h3>content-claude-skills</h3>
+            <span class="project-status">Active</span>
+          </div>
+          <p>Claude Skills for generating images, video, and audio — practical building blocks for creator pipelines.</p>
+          <div class="project-meta">
+            <span>Skills · Generation</span>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="projects-footer">
+        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">
+          View all repositories on GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section closing">
+    <div class="container">
+      <h2>Open-sourcing the future<br />of creator tooling</h2>
+      <p>We believe the most powerful creative AI should be transparent, composable, and owned by the people who use it.</p>
+      <a href="https://github.com/Creatorsai-Lab" class="btn btn-primary" target="_blank" rel="noopener">Join us on GitHub</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="logo-mark small"></span>
+        <span>Creators AI Lab</span>
+      </div>
+      <div class="footer-right">
+        <span>© 2026 · Built with purpose</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
