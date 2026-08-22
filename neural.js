@@ -29,7 +29,8 @@ class Node {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(199, 93, 58, 0.45)';
+    // ctx.fillStyle = 'rgba(199, 93, 58, 0.45)';
+    ctx.fillStyle = 'rgba(255, 23, 7, 0.45)';
     ctx.fill();
   }
 }
@@ -58,7 +59,7 @@ function animate() {
         ctx.beginPath();
         ctx.moveTo(nodes[i].x, nodes[i].y);
         ctx.lineTo(nodes[j].x, nodes[j].y);
-        ctx.strokeStyle = `rgba(199, 93, 58, ${opacity * 0.18})`;
+        ctx.strokeStyle = `rgba(199, 93, 58, ${opacity * 0.30})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }

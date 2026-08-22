@@ -166,7 +166,7 @@ a { color: inherit; text-decoration: none; }
 .node {
   position: absolute;
   border-radius: 50%;
-  background: var(--color-primary);
+  background:rgb(17, 16, 16);
   opacity: 0.15;
   animation: float 12s ease-in-out infinite;
 }

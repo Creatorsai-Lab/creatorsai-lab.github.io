@@ -23,6 +23,7 @@
                 Creators AI Lab
             </a>
             <ul class="nav-links">
+                <li><a href="#neural">Architecture</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#pipeline">Pipeline</a></li>
                 <li><a href="#builder">Products</a></li>
@@ -34,34 +35,44 @@
     </nav>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!--  HERO — Neural Network Canvas                                      -->
+    <!--  HERO                                                              -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section class="hero">
-        <div class="container" style="display:contents;">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="pulse"></span>
-                    Open-source AI research lab
-                </div>
-                <h1>
-                    <span class="line">Building the</span>
-                    <span class="line accent">frontier</span>
-                    <span class="line">of creator intelligence</span>
-                </h1>
-                <p class="hero-subtitle">
-                    We research and build AI/ML systems that handle the entire content creation pipeline — from ideation to publication — with zero friction.
-                </p>
-                <div class="hero-ctas">
-                    <a href="https://github.com/Creatorsai-Lab" class="btn-primary" target="_blank" rel="noopener">
-                        Explore Research →
-                    </a>
-                    <a href="#pipeline" class="btn-ghost">View Pipeline</a>
-                </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Open-source AI research lab
             </div>
+            <h1>
+                <span class="line">Building the</span>
+                <span class="line accent">frontier</span>
+                <span class="line">of creator intelligence</span>
+            </h1>
+            <p class="hero-subtitle">
+                We research and build AI/ML systems that handle the entire content creation pipeline — from ideation to publication — with zero friction.
+            </p>
+            <div class="hero-ctas">
+                <a href="https://github.com/Creatorsai-Lab" class="btn-primary" target="_blank" rel="noopener">
+                    Explore Research →
+                </a>
+                <a href="#neural" class="btn-ghost">View Architecture</a>
+            </div>
+        </div>
+    </section>
 
-            <div class="hero-visual">
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!--  NEURAL ARCHITECTURE — Below Hero                                  -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="neural-section" id="neural">
+        <div class="container">
+            <div class="neural-header reveal">
+                <span class="section-tag">// Live Architecture</span>
+                <h2>How our <span class="accent">neural systems</span> think</h2>
+                <p>A real-time visualization of signal propagation through our multi-layer transformer architecture.</p>
+            </div>
+            <div class="neural-canvas-wrapper reveal reveal-delay-1">
                 <canvas id="neural-canvas"></canvas>
-                <div class="hero-visual-label">Live Architecture Visualization</div>
+                <div class="neural-label">Live Signal Propagation</div>
             </div>
         </div>
     </section>
@@ -430,7 +441,7 @@
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <script>
     // ═══════════════════════════════════════════════════════════════════════
-    //  1. NEURAL NETWORK CANVAS — Layered Architecture Animation
+    //  1. NEURAL NETWORK CANVAS — Slow, Smooth, Large Neurons
     // ═══════════════════════════════════════════════════════════════════════
     (function() {
         const canvas = document.getElementById('neural-canvas');
@@ -440,53 +451,66 @@
         let signals = [];
         let frame = 0;
 
-        const COLORS = {
-            neuron: '#c75d3a',
-            neuronGlow: 'rgba(199, 93, 58, 0.15)',
-            connection: 'rgba(199, 93, 58, 0.08)',
-            signal: '#c75d3a',
-            text: '#8b7f75'
+        const CONFIG = {
+            neuronRadius: 11,
+            neuronGlowBase: 18,
+            neuronGlowActive: 32,
+            connectionOpacityBase: 0.035,
+            connectionOpacityActive: 0.18,
+            signalSpeedMin: 0.0018,
+            signalSpeedMax: 0.0032,
+            signalSpawnInterval: 90,
+            signalSpawnIntervalVar: 50,
+            decayRate: 0.955,
+            layers: [
+                { count: 5,  label: 'INPUT',     yRatio: 0.16 },
+                { count: 7,  label: 'EMBED',     yRatio: 0.36 },
+                { count: 9,  label: 'ATTENTION', yRatio: 0.56 },
+                { count: 8,  label: 'FFN',       yRatio: 0.76 },
+                { count: 6,  label: 'OUTPUT',    yRatio: 0.92 }
+            ]
         };
 
         function resize() {
-            const rect = canvas.parentElement.getBoundingClientRect();
-            W = canvas.width = rect.width * window.devicePixelRatio;
-            H = canvas.height = rect.height * window.devicePixelRatio;
-            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-            W /= window.devicePixelRatio;
-            H /= window.devicePixelRatio;
+            const wrapper = canvas.parentElement;
+            const rect = wrapper.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio, 2);
+            W = canvas.width = rect.width * dpr;
+            H = canvas.height = rect.height * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            W = rect.width;
+            H = rect.height;
             initLayers();
         }
 
         function initLayers() {
             layers = [];
-            const layerConfigs = [
-                { count: 5,  label: 'INPUT',    y: H * 0.18 },
-                { count: 7,  label: 'EMBED',    y: H * 0.38 },
-                { count: 9,  label: 'ATTENTION',y: H * 0.58 },
-                { count: 6,  label: 'GENERATE', y: H * 0.78 }
-            ];
-
-            const marginX = W * 0.12;
+            const marginX = W * 0.10;
             const availableW = W - marginX * 2;
+            const layerCount = CONFIG.layers.length;
 
-            layerConfigs.forEach((cfg, li) => {
-                const x = marginX + (availableW / (layerConfigs.length - 1)) * li;
+            CONFIG.layers.forEach((cfg, li) => {
+                const x = marginX + (availableW / (layerCount - 1)) * li;
                 const neurons = [];
-                const spacing = Math.min(50, (H * 0.6) / cfg.count);
-                const startY = cfg.y - (cfg.count - 1) * spacing / 2;
+                const spacing = Math.min(56, (H * 0.75) / Math.max(cfg.count, 1));
+                const startY = cfg.yRatio * H - (cfg.count - 1) * spacing / 2;
 
                 for (let i = 0; i < cfg.count; i++) {
                     neurons.push({
                         x: x,
                         y: startY + i * spacing,
-                        r: 5,
+                        r: CONFIG.neuronRadius,
                         active: 0,
-                        label: i === Math.floor(cfg.count/2) ? cfg.label : null
+                        targetActive: 0,
+                        label: i === Math.floor(cfg.count / 2) ? cfg.label : null
                     });
                 }
                 layers.push(neurons);
             });
+        }
+
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         }
 
         function spawnSignal() {
@@ -496,11 +520,15 @@
 
             for (let l = 1; l < layers.length; l++) {
                 const prev = path[path.length - 1];
-                // Connect to 1-3 random neurons in next layer
                 const targets = [];
-                const count = 1 + Math.floor(Math.random() * 2);
+                const count = 1 + Math.floor(Math.random() * 3);
+                const used = new Set();
                 for (let c = 0; c < count; c++) {
-                    targets.push(Math.floor(Math.random() * layers[l].length));
+                    let idx;
+                    do { idx = Math.floor(Math.random() * layers[l].length); }
+                    while (used.has(idx) && used.size < layers[l].length);
+                    used.add(idx);
+                    targets.push(idx);
                 }
                 path.push({ layer: l, neurons: targets });
             }
@@ -508,44 +536,45 @@
             signals.push({
                 path: path,
                 progress: 0,
-                speed: 0.008 + Math.random() * 0.006,
-                branchIndex: 0,
-                branches: []
+                speed: CONFIG.signalSpeedMin + Math.random() * (CONFIG.signalSpeedMax - CONFIG.signalSpeedMin),
+                easedProgress: 0
             });
         }
+
+        let nextSpawn = CONFIG.signalSpawnInterval;
 
         function update() {
             frame++;
 
-            // Spawn signals periodically
-            if (frame % 40 === 0) spawnSignal();
-            if (frame % 70 === 0) spawnSignal();
+            if (frame >= nextSpawn) {
+                spawnSignal();
+                nextSpawn = frame + CONFIG.signalSpawnInterval + Math.floor(Math.random() * CONFIG.signalSpawnIntervalVar);
+            }
 
-            // Update signals
+            // Update signals with easing
             for (let i = signals.length - 1; i >= 0; i--) {
                 const s = signals[i];
                 s.progress += s.speed;
+                s.easedProgress = easeInOutCubic(Math.min(s.progress, 1));
 
-                // Activate neurons as signal passes
                 const totalSteps = s.path.length - 1;
-                const currentStep = Math.floor(s.progress * totalSteps);
-                const stepProgress = (s.progress * totalSteps) - currentStep;
+                const currentStep = Math.floor(s.easedProgress * totalSteps);
+                const stepProgress = (s.easedProgress * totalSteps) - currentStep;
+                const smoothStep = easeInOutCubic(stepProgress);
 
                 if (currentStep < totalSteps) {
                     const from = s.path[currentStep];
                     const to = s.path[currentStep + 1];
 
-                    // Activate source neuron
                     if (from.neuron !== undefined) {
                         const n = layers[from.layer][from.neuron];
-                        n.active = Math.max(n.active, 1 - stepProgress);
+                        n.targetActive = Math.max(n.targetActive, 1 - smoothStep);
                     }
 
-                    // Activate target neurons
                     if (to.neurons) {
                         to.neurons.forEach(ti => {
                             const n = layers[to.layer][ti];
-                            n.active = Math.max(n.active, stepProgress);
+                            n.targetActive = Math.max(n.targetActive, smoothStep);
                         });
                     }
                 }
@@ -555,10 +584,12 @@
                 }
             }
 
-            // Decay neuron activation
+            // Smooth neuron activation with lerp
             layers.forEach(layer => {
                 layer.forEach(n => {
-                    n.active *= 0.92;
+                    n.active += (n.targetActive - n.active) * 0.12;
+                    n.targetActive *= CONFIG.decayRate;
+                    if (n.targetActive < 0.001) n.targetActive = 0;
                 });
             });
         }
@@ -567,15 +598,15 @@
             ctx.clearRect(0, 0, W, H);
 
             // Draw connections
-            ctx.strokeStyle = COLORS.connection;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.2;
             for (let l = 0; l < layers.length - 1; l++) {
                 for (let i = 0; i < layers[l].length; i++) {
-                    for (let j = 0; j < layers[l+1].length; j++) {
+                    for (let j = 0; j < layers[l + 1].length; j++) {
                         const a = layers[l][i];
-                        const b = layers[l+1][j];
+                        const b = layers[l + 1][j];
                         const activity = (a.active + b.active) * 0.5;
-                        ctx.globalAlpha = 0.04 + activity * 0.25;
+                        const alpha = CONFIG.connectionOpacityBase + activity * CONFIG.connectionOpacityActive;
+                        ctx.strokeStyle = `rgba(199, 93, 58, ${alpha})`;
                         ctx.beginPath();
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
@@ -583,13 +614,13 @@
                     }
                 }
             }
-            ctx.globalAlpha = 1;
 
             // Draw signals traveling
             signals.forEach(s => {
                 const totalSteps = s.path.length - 1;
-                const currentStep = Math.floor(s.progress * totalSteps);
-                const stepProgress = (s.progress * totalSteps) - currentStep;
+                const currentStep = Math.floor(s.easedProgress * totalSteps);
+                const stepProgress = (s.easedProgress * totalSteps) - currentStep;
+                const smoothStep = easeInOutCubic(stepProgress);
 
                 if (currentStep < totalSteps) {
                     const from = s.path[currentStep];
@@ -599,22 +630,33 @@
                         const a = layers[from.layer][from.neuron];
                         to.neurons.forEach(ti => {
                             const b = layers[to.layer][ti];
-                            const sx = a.x + (b.x - a.x) * stepProgress;
-                            const sy = a.y + (b.y - a.y) * stepProgress;
+                            const sx = a.x + (b.x - a.x) * smoothStep;
+                            const sy = a.y + (b.y - a.y) * smoothStep;
 
-                            // Glow
-                            const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, 12);
-                            grad.addColorStop(0, 'rgba(199, 93, 58, 0.4)');
-                            grad.addColorStop(1, 'rgba(199, 93, 58, 0)');
-                            ctx.fillStyle = grad;
+                            // Soft outer glow
+                            const outerGrad = ctx.createRadialGradient(sx, sy, 0, sx, sy, 22);
+                            outerGrad.addColorStop(0, 'rgba(199, 93, 58, 0.22)');
+                            outerGrad.addColorStop(0.5, 'rgba(199, 93, 58, 0.08)');
+                            outerGrad.addColorStop(1, 'rgba(199, 93, 58, 0)');
+                            ctx.fillStyle = outerGrad;
                             ctx.beginPath();
-                            ctx.arc(sx, sy, 12, 0, Math.PI * 2);
+                            ctx.arc(sx, sy, 22, 0, Math.PI * 2);
+                            ctx.fill();
+
+                            // Inner glow
+                            const innerGrad = ctx.createRadialGradient(sx, sy, 0, sx, sy, 8);
+                            innerGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+                            innerGrad.addColorStop(0.4, 'rgba(199, 93, 58, 0.8)');
+                            innerGrad.addColorStop(1, 'rgba(199, 93, 58, 0)');
+                            ctx.fillStyle = innerGrad;
+                            ctx.beginPath();
+                            ctx.arc(sx, sy, 8, 0, Math.PI * 2);
                             ctx.fill();
 
                             // Core
-                            ctx.fillStyle = COLORS.signal;
+                            ctx.fillStyle = '#fff';
                             ctx.beginPath();
-                            ctx.arc(sx, sy, 3, 0, Math.PI * 2);
+                            ctx.arc(sx, sy, 2.8, 0, Math.PI * 2);
                             ctx.fill();
                         });
                     }
@@ -624,27 +666,45 @@
             // Draw neurons
             layers.forEach((layer, li) => {
                 layer.forEach((n, ni) => {
-                    const glowR = n.r + 8 + n.active * 12;
+                    const glowR = CONFIG.neuronGlowBase + n.active * CONFIG.neuronGlowActive;
                     const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowR);
-                    grad.addColorStop(0, `rgba(199, 93, 58, ${0.1 + n.active * 0.3})`);
+                    const glowAlpha = 0.06 + n.active * 0.28;
+                    grad.addColorStop(0, `rgba(199, 93, 58, ${glowAlpha})`);
+                    grad.addColorStop(0.5, `rgba(199, 93, 58, ${glowAlpha * 0.4})`);
                     grad.addColorStop(1, 'rgba(199, 93, 58, 0)');
                     ctx.fillStyle = grad;
                     ctx.beginPath();
                     ctx.arc(n.x, n.y, glowR, 0, Math.PI * 2);
                     ctx.fill();
 
-                    // Neuron body
-                    ctx.fillStyle = n.active > 0.3 ? '#c75d3a' : '#e8dfd3';
+                    // Neuron ring
+                    ctx.strokeStyle = n.active > 0.15 ? 'rgba(199, 93, 58, 0.6)' : 'rgba(199, 93, 58, 0.15)';
+                    ctx.lineWidth = n.active > 0.15 ? 2.2 : 1.2;
                     ctx.beginPath();
-                    ctx.arc(n.x, n.y, n.r + n.active * 2, 0, Math.PI * 2);
+                    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Neuron fill
+                    const fillAlpha = 0.04 + n.active * 0.35;
+                    ctx.fillStyle = `rgba(199, 93, 58, ${fillAlpha})`;
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.r - 1, 0, Math.PI * 2);
                     ctx.fill();
 
+                    // Center dot
+                    if (n.active > 0.2) {
+                        ctx.fillStyle = `rgba(199, 93, 58, ${0.4 + n.active * 0.6})`;
+                        ctx.beginPath();
+                        ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
                     // Labels
-                    if (n.label && li < layers.length) {
-                        ctx.fillStyle = COLORS.text;
-                        ctx.font = '500 9px Inter';
+                    if (n.label) {
+                        ctx.fillStyle = n.active > 0.1 ? 'rgba(199, 93, 58, 0.9)' : 'rgba(139, 127, 117, 0.7)';
+                        ctx.font = `600 ${n.active > 0.1 ? 10 : 9}px Inter`;
                         ctx.textAlign = 'center';
-                        ctx.fillText(n.label, n.x, n.y + 22);
+                        ctx.fillText(n.label, n.x, n.y + n.r + 18);
                     }
                 });
             });
@@ -656,7 +716,10 @@
             requestAnimationFrame(loop);
         }
 
-        window.addEventListener('resize', resize);
+        window.addEventListener('resize', () => {
+            resize();
+        });
+
         resize();
         loop();
     })();
