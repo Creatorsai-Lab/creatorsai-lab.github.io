@@ -1,242 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creators AI Lab — Frontier AI for Content Creation</title>
-  <meta name="description" content="Creators AI Lab researches and builds open AI systems that give every storyteller a complete creative suite." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Creators AI Lab — Innovating the Future of Content Creations." />
+    <title>Creators AI Lab — Innovating the Future of Content Creations</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Smooth scrolling + animation + 3D -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.171.0/build/three.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
 
-  <!-- Animated Neural Background -->
-  <canvas id="neural-bg"></canvas>
+    <div class="site-noise" aria-hidden="true"></div>
+    <canvas id="binaryCanvas" aria-hidden="true"></canvas>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">
-        <span class="logo-orb"></span>
-        Creators AI Lab
-      </a>
-      <div class="nav-links">
-        <a href="#mission">Mission</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </nav>
+    <header class="nav">
+        <div class="nav-inner shell">
+            <a href="#" class="brand magnetic">
+                <span class="brand-mark"><i></i><i></i><i></i></span>
+                <span>Creators AI Lab</span>
+            </a>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">
-        <span class="pulse-dot"></span>
-        OPEN-SOURCE · RESEARCH-DRIVEN · CREATOR-FIRST
-      </div>
-      <h1>
-        Innovating the AI suite<br />
-        <span class="gradient-text">every content creators</span> deserves
-      </h1>
-      <p class="hero-sub">
-        We research and ship AI systems that handle the entire content pipeline: ideation, research, personalization, media generation, editing, and stratgic posting so creators can focus on what only humans can do.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">
-          Explore Projects
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">
-          View on GitHub
-        </a>
-      </div>
-    </div>
+            <nav class="nav-links">
+                <a href="#research">Research</a>
+                <a href="#production">Production</a>
+                <a href="#lab">The Lab</a>
+            </nav>
 
-    <!-- Floating neural nodes (decorative) -->
-    <div class="floating-nodes">
-      <div class="node n1"></div>
-      <div class="node n2"></div>
-      <div class="node n3"></div>
-      <div class="node n4"></div>
-      <div class="node n5"></div>
-    </div>
-  </header>
-
-  <!-- Mission -->
-  <section id="mission" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Mission</span>
-        <h2>Empower every storyteller<br />with open, ethical &amp; composable AI</h2>
-      </div>
-
-      <div class="mission-grid">
-        <div class="mission-card" data-reveal>
-          <div class="card-number">01</div>
-          <h3>Research at the frontier</h3>
-          <p>We explore LLMs, multi-agent systems, and generative media specifically for content creation — not general-purpose demos.</p>
+            <a class="nav-github magnetic" href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">
+                GitHub <span>↗</span>
+            </a>
         </div>
-        <div class="mission-card" data-reveal>
-          <div class="card-number">02</div>
-          <h3>Build real applications</h3>
-          <p>Every research direction ends in usable tools. From video editors to multi-agent social teams, we ship working software.</p>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero shell">
+            <div class="hero-copy">
+                <div class="eyebrow reveal">
+                    <span class="pulse"></span>
+                    INDEPENDENT AI INNOVATION LAB
+                </div>
+
+                <h1 class="hero-title reveal">
+                    Innovating the
+                    <span>Future of</span>
+                    Content Creations.
+                </h1>
+
+                <p class="hero-description reveal">
+                    We research and build AI/ML systems that handle the entire content
+                    creation pipeline — from ideation to publication — with zero friction.
+                </p>
+
+                <div class="hero-actions reveal">
+                    <a href="#research" class="button button-primary magnetic">
+                        Explore our research <span>↓</span>
+                    </a>
+                    <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer"
+                        class="button button-text magnetic">
+                        Open source <span>↗</span>
+                    </a>
+                </div>
+
+                <div class="hero-meta reveal">
+                    <span>01 — RESEARCH</span>
+                    <span>02 — BUILD</span>
+                    <span>03 — RELEASE</span>
+                </div>
+            </div>
+
+            <div class="hero-visual" id="heroVisual">
+                <div class="visual-label visual-label-top">
+                    <span>CREATIVE INTELLIGENCE</span>
+                    <span class="mono">ONLINE</span>
+                </div>
+
+                <div class="three-wrap" id="threeHero"></div>
+
+                <div class="signal-card signal-a">
+                    <span class="signal-index">01</span>
+                    <span>IDEA</span>
+                    <div class="signal-line"></div>
+                </div>
+
+                <div class="signal-card signal-b">
+                    <span class="signal-index">04</span>
+                    <span>OUTPUT</span>
+                    <div class="signal-line"></div>
+                </div>
+
+                <div class="orbit-note">
+                    <span class="orbit-dot"></span>
+                    <span>GENERATIVE SYSTEM</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH SYSTEM -->
+        <section class="research section shell" id="research">
+            <div class="section-intro">
+                <div class="section-kicker">01 / RESEARCH SYSTEM</div>
+                <h2>We don't just build tools.<br><em>We study the system.</em></h2>
+                <p>
+                    Content creation is becoming an intelligence problem. Our research
+                    explores how models, agents, editors and multimodal systems can work
+                    together as one continuous creative system.
+                </p>
+            </div>
+
+            <div class="pipeline">
+                <div class="pipeline-grid"></div>
+
+                <div class="pipeline-header">
+                    <span>CREATORS AI / PIPELINE-01</span>
+                    <span class="mono">LIVE RESEARCH MAP</span>
+                </div>
+
+                <div class="pipeline-stage stage-1">
+                    <span class="stage-num">01</span>
+                    <strong>IDEATE</strong>
+                    <small>signals · trends · intent</small>
+                </div>
+
+                <div class="pipeline-stage stage-2">
+                    <span class="stage-num">02</span>
+                    <strong>THINK</strong>
+                    <small>agents · reasoning · planning</small>
+                </div>
+
+                <div class="pipeline-stage stage-3">
+                    <span class="stage-num">03</span>
+                    <strong>CREATE</strong>
+                    <small>language · image · audio · video</small>
+                </div>
+
+                <div class="pipeline-stage stage-4">
+                    <span class="stage-num">04</span>
+                    <strong>EDIT</strong>
+                    <small>timeline · motion · composition</small>
+                </div>
+
+                <div class="pipeline-stage stage-5">
+                    <span class="stage-num">05</span>
+                    <strong>PUBLISH</strong>
+                    <small>distribution · feedback · learning</small>
+                </div>
+
+                <svg class="pipeline-lines" viewBox="0 0 1200 430" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="flow-path"
+                        d="M115 245 C240 120, 265 120, 350 245 S480 370, 585 245 S720 120, 815 245 S940 370, 1080 210" />
+                    <path class="flow-path flow-path-2"
+                        d="M115 245 C240 350, 265 350, 350 245 S480 140, 585 245 S720 350, 815 245 S940 140, 1080 210" />
+                </svg>
+
+                <div class="packet packet-1">0101</div>
+                <div class="packet packet-2">001</div>
+                <div class="packet packet-3">11010</div>
+            </div>
+        </section>
+
+        <!-- STATEMENT -->
+        <section class="manifesto shell">
+            <div class="manifesto-line"></div>
+            <div class="manifesto-index mono">/ 00</div>
+            <p>
+                <span>Our thesis:</span> the future of content creation isn't a single
+                model. It is an intelligent, composable system where every stage learns
+                from the one before it.
+            </p>
+        </section>
+
+        <!-- PRODUCTION -->
+        <section class="production section shell" id="production">
+            <div class="section-heading-row">
+                <div>
+                    <div class="section-kicker">02 / PRODUCTION</div>
+                    <h2>Built in the lab.<br><em>Used in the real world.</em></h2>
+                </div>
+                <div class="production-count mono">04 / CURRENT SYSTEMS</div>
+            </div>
+
+            <div class="product-grid">
+                <a class="product-card product-card-large" href="https://github.com/Creatorsai-Lab/cupid"
+                    target="_blank" rel="noreferrer">
+                    <div class="product-top">
+                        <span class="product-id">01</span>
+                        <span class="product-status">AGENT SYSTEM</span>
+                    </div>
+                    <div class="product-visual cupid-visual">
+                        <div class="agent-node node-a">RESEARCH</div>
+                        <div class="agent-node node-b">PERSONA</div>
+                        <div class="agent-node node-c">COMPOSE</div>
+                        <div class="agent-core">C</div>
+                        <span class="vector v1"></span><span class="vector v2"></span><span class="vector v3"></span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cupid</h3>
+                        <p>A multi-agent system for research, content creation and social publishing workflows.</p>
+                        <span class="product-link">Explore system ↗</span>
+                    </div>
+                </a>
+
+                <a class="product-card" href="https://github.com/Creatorsai-Lab/luffy-create" target="_blank"
+                    rel="noreferrer">
+                    <div class="product-top">
+                        <span class="product-id">02</span>
+                        <span class="product-status">EDITOR</span>
+                    </div>
+                    <div class="editor-visual">
+                        <div class="editor-window">
+                            <div class="editor-bar"><i></i><i></i><i></i></div>
+                            <div class="editor-canvas">
+                                <div class="play-shape">▶</div>
+                                <div class="editor-grid"></div>
+                            </div>
+                            <div class="editor-timeline"><i></i><i></i><i></i><i></i><i></i></div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Luffy Create</h3>
+                        <p>Open-source creation and editing environment for technical and educational content.</p>
+                        <span class="product-link">View project ↗</span>
+                    </div>
+                </a>
+
+                <a class="product-card" href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">
+                    <div class="product-top">
+                        <span class="product-id">03</span>
+                        <span class="product-status">AUDIO</span>
+                    </div>
+                    <div class="audio-visual">
+                        <div class="waveform">
+                            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <span class="audio-label">AUGMENT / 44.1 KHZ</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Audio Augment</h3>
+                        <p>Researching intelligent audio workflows that make generated content feel complete.</p>
+                        <span class="product-link">Research in progress ↗</span>
+                    </div>
+                </a>
+
+                <a class="product-card" href="https://github.com/Creatorsai-Lab/Aura-LM" target="_blank"
+                    rel="noreferrer">
+                    <div class="product-top">
+                        <span class="product-id">04</span>
+                        <span class="product-status">MODEL</span>
+                    </div>
+                    <div class="model-visual">
+                        <div class="model-ring ring-1"></div>
+                        <div class="model-ring ring-2"></div>
+                        <div class="model-ring ring-3"></div>
+                        <div class="model-token">AURA</div>
+                        <span class="model-token-small">7B</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Aura LM</h3>
+                        <p>A compact, quantized language model explored specifically for content generation.</p>
+                        <span class="product-link">Inspect model ↗</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- LAB -->
+        <section class="lab section shell" id="lab">
+            <div class="lab-left">
+                <div class="section-kicker">03 / THE LAB</div>
+                <h2>Small lab.<br><em>Large frontier.</em></h2>
+                <p>
+                    We prefer shipping experiments over announcing roadmaps. Every idea
+                    becomes a prototype, every prototype becomes a measurement, and the
+                    useful ones become production systems.
+                </p>
+
+                <a class="button button-primary magnetic" href="https://github.com/Creatorsai-Lab" target="_blank"
+                    rel="noreferrer">
+                    Visit the lab on GitHub <span>↗</span>
+                </a>
+            </div>
+
+            <div class="lab-terminal">
+                <div class="terminal-head">
+                    <span>CREATORS_AI_LAB / SYSTEM</span>
+                    <span class="mono">v0.4.26</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="terminal-muted">01</span> initializing creative intelligence...</div>
+                    <div><span class="terminal-muted">02</span> loading multimodal systems <b>✓</b></div>
+                    <div><span class="terminal-muted">03</span> connecting agent graph <b>✓</b></div>
+                    <div><span class="terminal-muted">04</span> optimizing creator workflow <b>✓</b></div>
+                    <div><span class="terminal-muted">05</span> <strong>research → build → release</strong><span
+                            class="terminal-cursor"></span></div>
+                </div>
+                <div class="terminal-matrix">
+                    010 011 001 101 110 010 001 111 010 100<br>
+                    101 001 110 011 010 101 100 001 110 010
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer shell">
+        <div class="footer-brand">
+            <span class="brand-mark"><i></i><i></i><i></i></span>
+            <strong>Creators AI Lab</strong>
+            <span>Innovating the Future of Content Creations.</span>
         </div>
-        <div class="mission-card" data-reveal>
-          <div class="card-number">03</div>
-          <h3>Open by default</h3>
-          <p>Permissive licenses. Transparent development. No lock-in. The future of creator tooling should belong to creators.</p>
+        <div class="footer-links">
+            <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="#research">Research</a>
+            <a href="#production">Production</a>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="footer-bottom">
+            <span>© 2026 Creators AI Lab</span>
+            <span>Built with curiosity.</span>
+        </div>
+    </footer>
 
-  <!-- Research -->
-  <section id="research" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Research Focus</span>
-        <h2>Where we push the frontier</h2>
-      </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-      <div class="research-grid">
-        <article class="research-card" data-reveal>
-          <div class="research-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M4 14a8 8 0 0116 0v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z"/><circle cx="9" cy="16" r="1"/><circle cx="15" cy="16" r="1"/></svg>
-          </div>
-          <span class="tag">LLMs &amp; Knowledge</span>
-          <h3>Content-specialized language models</h3>
-          <p>Models and knowledge systems tuned for storytelling, scripting, educational content, and long-form creative workflows.</p>
-        </article>
+        /* -------------------------
+           Smooth scrolling
+        ------------------------- */
+        const lenis = new Lenis({
+            duration: 1.15,
+            smoothWheel: true,
+            smoothTouch: false,
+            wheelMultiplier: 0.85
+        });
 
-        <article class="research-card" data-reveal>
-          <div class="research-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <span class="tag">Media Generation</span>
-          <h3>Video, image &amp; multimodal systems</h3>
-          <p>Lightweight, high-control generation and editing pipelines designed for individual creators rather than large studios.</p>
-        </article>
-
-        <article class="research-card" data-reveal>
-          <div class="research-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-          </div>
-          <span class="tag">Agents</span>
-          <h3>Multi-agent creative teams</h3>
-          <p>Agent systems that collaborate on ideation, production, publishing, and audience workflows across platforms.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Flagship Projects</span>
-        <h2>Open tools from the lab</h2>
-      </div>
-
-      <div class="projects-grid">
-        <a href="https://github.com/Creatorsai-Lab/luffy-create" class="project-card" target="_blank" rel="noopener" data-reveal>
-          <div class="project-glow"></div>
-          <div class="project-top">
-            <h3>luffy-create</h3>
-            <span class="status">Active</span>
-          </div>
-          <p>Lightweight, offline-first AI video &amp; image editor. Timeline, animations, captions, and precise control — built for technical and educational creators.</p>
-          <div class="project-footer">
-            <span>TypeScript · Electron · Konva</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Creatorsai-Lab/cupid" class="project-card" target="_blank" rel="noopener" data-reveal>
-          <div class="project-glow"></div>
-          <div class="project-top">
-            <h3>cupid</h3>
-            <span class="status">Active</span>
-          </div>
-          <p>Social media agents team. Multi-agent systems that plan, create, and manage content workflows across platforms.</p>
-          <div class="project-footer">
-            <span>Python · Agents</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Creatorsai-Lab/Aura-LM" class="project-card" target="_blank" rel="noopener" data-reveal>
-          <div class="project-glow"></div>
-          <div class="project-top">
-            <h3>Aura-LM</h3>
-            <span class="status research">Research</span>
-          </div>
-          <p>Language models specialized for content creation tasks — scripting, structuring, and creative assistance.</p>
-          <div class="project-footer">
-            <span>LLMs · Content</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Creatorsai-Lab/content-claude-skills" class="project-card" target="_blank" rel="noopener" data-reveal>
-          <div class="project-glow"></div>
-          <div class="project-top">
-            <h3>content-claude-skills</h3>
-            <span class="status">Active</span>
-          </div>
-          <p>Claude Skills for generating images, video, and audio — practical building blocks for creator pipelines.</p>
-          <div class="project-footer">
-            <span>Skills · Generation</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="projects-cta">
-        <a href="https://github.com/Creatorsai-Lab" class="btn btn-ghost" target="_blank" rel="noopener">
-          View all repositories on GitHub →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Closing -->
-  <section class="closing">
-    <div class="container">
-      <h2>Open-sourcing the future<br />of creator tooling</h2>
-      <p>We believe the most powerful creative AI should be transparent, composable, and owned by the people who use it.</p>
-      <a href="https://github.com/Creatorsai-Lab" class="btn btn-primary" target="_blank" rel="noopener">
-        Join us on GitHub
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="logo-orb small"></span>
-        Creators AI Lab
-      </div>
-      <div class="footer-copy">© 2026 · Built with purpose</div>
-    </div>
-  </footer>
-
-  <script src="neural.js"></script>
-  <script>
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         }
-      });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+        requestAnimationFrame(raf);
+
+        /* -------------------------
+           Cursor
+        ------------------------- */
+        const dot = document.querySelector(".cursor-dot");
+        const ring = document.querySelector(".cursor-ring");
+
+        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+        let rx = mx, ry = my;
+
+        window.addEventListener("pointermove", (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+            dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+        });
+
+        function cursorLoop() {
+            rx += (mx - rx) * 0.13;
+            ry += (my - ry) * 0.13;
+            ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+            requestAnimationFrame(cursorLoop);
+        }
+        cursorLoop();
+
+        document.querySelectorAll("a, .magnetic, .product-card").forEach((el) => {
+            el.addEventListener("mouseenter", () => document.body.classList.add("cursor-active"));
+            el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-active"));
+        });
+
+        /* -------------------------
+           Intro reveal
+        ------------------------- */
+        gsap.fromTo(".reveal",
+            { opacity: 0, y: 28 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.0,
+                stagger: 0.09,
+                ease: "power3.out",
+                delay: 0.25
+            }
+        );
+
+        gsap.to(".hero-copy", {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        gsap.to(".hero-visual", {
+            yPercent: 13,
+            rotate: 2,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        /* -------------------------
+           Product cards
+        ------------------------- */
+        gsap.utils.toArray(".product-card").forEach((card, i) => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.04,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 86%"
+                }
+            });
+        });
+
+        /* -------------------------
+           Binary ambient field
+        ------------------------- */
+        const binaryCanvas = document.getElementById("binaryCanvas");
+        const bctx = binaryCanvas.getContext("2d");
+        let bw, bh, bits = [];
+
+        function resizeBinary() {
+            bw = binaryCanvas.width = window.innerWidth * devicePixelRatio;
+            bh = binaryCanvas.height = document.documentElement.scrollHeight * devicePixelRatio;
+            binaryCanvas.style.height = document.documentElement.scrollHeight + "px";
+            bctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+            bits = [];
+            for (let i = 0; i < 90; i++) {
+                bits.push({
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * document.documentElement.scrollHeight,
+                    speed: 0.08 + Math.random() * 0.24,
+                    char: Math.random() > 0.5 ? "0" : "1",
+                    alpha: 0.04 + Math.random() * 0.08,
+                    size: 9 + Math.random() * 5
+                });
+            }
+        }
+        resizeBinary();
+        window.addEventListener("resize", resizeBinary);
+
+        function drawBinary() {
+            bctx.clearRect(0, 0, window.innerWidth, document.documentElement.scrollHeight);
+            for (const bit of bits) {
+                bit.y -= bit.speed;
+                if (bit.y < -20) bit.y = document.documentElement.scrollHeight + 20;
+                bctx.globalAlpha = bit.alpha;
+                bctx.font = `${bit.size}px "DM Mono", monospace`;
+                bctx.fillText(bit.char, bit.x, bit.y);
+            }
+            bctx.globalAlpha = 1;
+            requestAnimationFrame(drawBinary);
+        }
+        drawBinary();
+
+        /* -------------------------
+           Three.js hero object
+           Warm research / latent-space orb
+        ------------------------- */
+        const container = document.getElementById("threeHero");
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+        camera.position.z = 5.3;
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(0x000000, 0);
+        container.appendChild(renderer.domElement);
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const geometry = new THREE.IcosahedronGeometry(1.42, 5);
+        const material = new THREE.PointsMaterial({
+            color: 0xc75d3a,
+            size: 0.018,
+            transparent: true,
+            opacity: 0.72,
+            sizeAttenuation: true
+        });
+
+        const cloud = new THREE.Points(geometry, material);
+        group.add(cloud);
+
+        const wireGeo = new THREE.IcosahedronGeometry(1.47, 2);
+        const wireMat = new THREE.MeshBasicMaterial({
+            color: 0xaf6d58,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.13
+        });
+        const wire = new THREE.Mesh(wireGeo, wireMat);
+        group.add(wire);
+
+        const ringGeo = new THREE.TorusGeometry(1.92, 0.006, 8, 160);
+        const ringMat = new THREE.MeshBasicMaterial({
+            color: 0xc75d3a,
+            transparent: true,
+            opacity: 0.35
+        });
+
+        for (let i = 0; i < 3; i++) {
+            const r = new THREE.Mesh(ringGeo, ringMat);
+            r.rotation.x = Math.PI / 2 + i * 0.6;
+            r.rotation.y = i * 0.55;
+            r.userData.speed = 0.002 + i * 0.001;
+            group.add(r);
+        }
+
+        function resizeThree() {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        }
+        resizeThree();
+        window.addEventListener("resize", resizeThree);
+
+        let targetX = 0, targetY = 0;
+        container.addEventListener("pointermove", (e) => {
+            const rect = container.getBoundingClientRect();
+            targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 0.45;
+            targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 0.35;
+        });
+
+        function renderThree(t) {
+            group.rotation.y += 0.0018;
+            group.rotation.x += 0.00055;
+
+            group.rotation.y += (targetX - group.rotation.y) * 0.002;
+            group.rotation.x += (-targetY - group.rotation.x) * 0.002;
+
+            group.children.forEach((child) => {
+                if (child.userData.speed) child.rotation.z += child.userData.speed;
+            });
+
+            cloud.rotation.z = Math.sin(t * 0.0002) * 0.12;
+            renderer.render(scene, camera);
+            requestAnimationFrame(renderThree);
+        }
+        requestAnimationFrame(renderThree);
+
+        /* -------------------------
+           Interactive product tilt
+        ------------------------- */
+        document.querySelectorAll(".product-card").forEach((card) => {
+            card.addEventListener("pointermove", (e) => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - 0.5;
+                const y = (e.clientY - r.top) / r.height - 0.5;
+                card.style.transform = `perspective(900px) rotateX(${y * -2.5}deg) rotateY(${x * 2.5}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener("pointerleave", () => {
+                card.style.transform = "";
+            });
+        });
+
+        /* -------------------------
+           Pipeline packet motion
+        ------------------------- */
+        gsap.to(".packet-1", { x: 350, y: 75, duration: 3.8, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        gsap.to(".packet-2", { x: 510, y: -50, duration: 4.8, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.7 });
+        gsap.to(".packet-3", { x: 650, y: 70, duration: 5.2, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.3 });
+
+        /* -------------------------
+           Magnetic buttons
+        ------------------------- */
+        document.querySelectorAll(".magnetic").forEach((el) => {
+            el.addEventListener("pointermove", (e) => {
+                const r = el.getBoundingClientRect();
+                const x = e.clientX - r.left - r.width / 2;
+                const y = e.clientY - r.top - r.height / 2;
+                el.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+            });
+            el.addEventListener("pointerleave", () => {
+                el.style.transform = "";
+            });
+        });
+
+        /* Refresh binary canvas after fonts/content settle */
+        window.addEventListener("load", () => setTimeout(resizeBinary, 500));
+    </script>
 </body>
+
 </html>
