@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.171.0/build/three.min.js"></script>
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_good.css" />
 </head>
 
 <body>
@@ -29,107 +29,49 @@
     <div class="site-noise" aria-hidden="true"></div>
     <canvas id="binaryCanvas" aria-hidden="true"></canvas>
 
-    <header class="nav">
-        <div class="nav-inner shell">
-            <a href="#" class="brand magnetic">
-                <span class="brand-mark"><i></i><i></i><i></i></span>
-                <span>Creators AI Lab</span>
-            </a>
-
-            <nav class="nav-links">
-                <a href="#research">Research</a>
-                <a href="#production">Production</a>
-                <a href="#lab">The Lab</a>
-            </nav>
-
-            <a class="nav-github magnetic" href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">
-                GitHub <span>↗</span>
-            </a>
+    <header class="header">
+        <div class="brand">
+            <img class="logo" src="./assets/creator-ai-icon.png" alt="creators-ai-lab-logo">
+            <span>Creators AI Lab</span>
         </div>
+
+        <nav class="nav-links">
+            <a href="#research">Pipeline</a>
+            <a href="#production">Projects</a>
+            <a href="#lab">The Lab</a>
+            <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">
+                GitHub
+            </a>
+        </nav>
+
     </header>
 
     <main>
         <!-- HERO -->
         <section class="hero shell">
-            <div class="hero-copy">
-                <div class="eyebrow reveal">
-                    <span class="pulse"></span>
-                    INDEPENDENT AI INNOVATION LAB
-                </div>
 
-                <h1 class="hero-title reveal">
-                    Innovating the
-                    <span>Future of</span>
-                    Content Creations.
-                </h1>
+            <h1 class="hero-title reveal">
+                Innovating the
+                <span>Future of</span>
+                Content Creations.
+            </h1>
 
-                <p class="hero-description reveal">
-                    We research and build AI/ML systems that handle the entire content
-                    creation pipeline — from ideation to publication — with zero friction.
-                </p>
-
-                <div class="hero-actions reveal">
-                    <a href="#research" class="button button-primary magnetic">
-                        Explore our research <span>↓</span>
-                    </a>
-                    <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer"
-                        class="button button-text magnetic">
-                        Open source <span>↗</span>
-                    </a>
-                </div>
-
-                <div class="hero-meta reveal">
-                    <span>01 — RESEARCH</span>
-                    <span>02 — BUILD</span>
-                    <span>03 — RELEASE</span>
-                </div>
-            </div>
-
-            <div class="hero-visual" id="heroVisual">
-                <div class="visual-label visual-label-top">
-                    <span>CREATIVE INTELLIGENCE</span>
-                    <span class="mono">ONLINE</span>
-                </div>
-
-                <div class="three-wrap" id="threeHero"></div>
-
-                <div class="signal-card signal-a">
-                    <span class="signal-index">01</span>
-                    <span>IDEA</span>
-                    <div class="signal-line"></div>
-                </div>
-
-                <div class="signal-card signal-b">
-                    <span class="signal-index">04</span>
-                    <span>OUTPUT</span>
-                    <div class="signal-line"></div>
-                </div>
-
-                <div class="orbit-note">
-                    <span class="orbit-dot"></span>
-                    <span>GENERATIVE SYSTEM</span>
-                </div>
-            </div>
+            <p class="hero-description reveal">
+                We are building frontier intelligence suite for <b>Content Creators</b> to provide them every need
+                of workflow at one place at their fingertips. We research and build practical applications specifically
+                for individual content creators (YouTubers, educators, indie makers, technical creators). Our goal is a
+                full ecosystem, not isolated demos.
+            </p>
         </section>
 
         <!-- RESEARCH SYSTEM -->
         <section class="research section shell" id="research">
-            <div class="section-intro">
-                <div class="section-kicker">01 / RESEARCH SYSTEM</div>
-                <h2>We don't just build tools.<br><em>We study the system.</em></h2>
-                <p>
-                    Content creation is becoming an intelligence problem. Our research
-                    explores how models, agents, editors and multimodal systems can work
-                    together as one continuous creative system.
-                </p>
-            </div>
 
             <div class="pipeline">
                 <div class="pipeline-grid"></div>
 
                 <div class="pipeline-header">
-                    <span>CREATORS AI / PIPELINE-01</span>
-                    <span class="mono">LIVE RESEARCH MAP</span>
+                    LIVE RESEARCH MAP
                 </div>
 
                 <div class="pipeline-stage stage-1">
@@ -140,7 +82,7 @@
 
                 <div class="pipeline-stage stage-2">
                     <span class="stage-num">02</span>
-                    <strong>THINK</strong>
+                    <strong>RESEARCH</strong>
                     <small>agents · reasoning · planning</small>
                 </div>
 
@@ -177,8 +119,6 @@
 
         <!-- STATEMENT -->
         <section class="manifesto shell">
-            <div class="manifesto-line"></div>
-            <div class="manifesto-index mono">/ 00</div>
             <p>
                 <span>Our thesis:</span> the future of content creation isn't a single
                 model. It is an intelligent, composable system where every stage learns
@@ -189,11 +129,10 @@
         <!-- PRODUCTION -->
         <section class="production section shell" id="production">
             <div class="section-heading-row">
-                <div>
-                    <div class="section-kicker">02 / PRODUCTION</div>
-                    <h2>Built in the lab.<br><em>Used in the real world.</em></h2>
+                <div class="pipeline-header">
+                    PROJECTS GALLERY
                 </div>
-                <div class="production-count mono">04 / CURRENT SYSTEMS</div>
+                <h2>Built in the lab.<br><em>Used in the real world.</em></h2>
             </div>
 
             <div class="product-grid">
@@ -283,31 +222,25 @@
         <!-- LAB -->
         <section class="lab section shell" id="lab">
             <div class="lab-left">
-                <div class="section-kicker">03 / THE LAB</div>
-                <h2>Small lab.<br><em>Large frontier.</em></h2>
+                <h2>Small Lab.<br><em>Large Innovation.</em></h2>
                 <p>
                     We prefer shipping experiments over announcing roadmaps. Every idea
                     becomes a prototype, every prototype becomes a measurement, and the
                     useful ones become production systems.
                 </p>
-
-                <a class="button button-primary magnetic" href="https://github.com/Creatorsai-Lab" target="_blank"
-                    rel="noreferrer">
-                    Visit the lab on GitHub <span>↗</span>
-                </a>
             </div>
 
             <div class="lab-terminal">
                 <div class="terminal-head">
-                    <span>CREATORS_AI_LAB / SYSTEM</span>
-                    <span class="mono">v0.4.26</span>
+                    <span>CUPID PLATFORM</span>
+                    <span class="mono">v1.0.1</span>
                 </div>
                 <div class="terminal-body">
-                    <div><span class="terminal-muted">01</span> initializing creative intelligence...</div>
-                    <div><span class="terminal-muted">02</span> loading multimodal systems <b>✓</b></div>
-                    <div><span class="terminal-muted">03</span> connecting agent graph <b>✓</b></div>
-                    <div><span class="terminal-muted">04</span> optimizing creator workflow <b>✓</b></div>
-                    <div><span class="terminal-muted">05</span> <strong>research → build → release</strong><span
+                    <div><span class="terminal-muted">01</span> initializing intelligence...</div>
+                    <div><span class="terminal-muted">02</span> safety filtering <b>✓</b></div>
+                    <div><span class="terminal-muted">03</span> personalization research <b>✓</b></div>
+                    <div><span class="terminal-muted">04</span> pipelin for content generation <b>✓</b></div>
+                    <div><span class="terminal-muted">05</span> <strong>research → compose → post</strong><span
                             class="terminal-cursor"></span></div>
                 </div>
                 <div class="terminal-matrix">
@@ -319,20 +252,7 @@
     </main>
 
     <footer class="footer shell">
-        <div class="footer-brand">
-            <span class="brand-mark"><i></i><i></i><i></i></span>
-            <strong>Creators AI Lab</strong>
-            <span>Innovating the Future of Content Creations.</span>
-        </div>
-        <div class="footer-links">
-            <a href="https://github.com/Creatorsai-Lab" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="#research">Research</a>
-            <a href="#production">Production</a>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Creators AI Lab</span>
-            <span>Built with curiosity.</span>
-        </div>
+        <span>© 2026 Creators AI Lab</span>
     </footer>
 
     <script>
@@ -607,6 +527,7 @@
 
         /* Refresh binary canvas after fonts/content settle */
         window.addEventListener("load", () => setTimeout(resizeBinary, 500));
+
     </script>
 </body>
 
